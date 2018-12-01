@@ -4,26 +4,25 @@ import click
 from flask import Flask, render_template
 
 from blog.blueprints.blog import blog_bp
-from blog.extensions import bootstrap, db, ckeditor, moment, login_manager
+from blog.extensions import bootstrap, db, ckeditor, moment
 from blog.models import Admin, Post, Category, Comment
 from blog.configs import config
 
 
 def create_app(config_name=None):
     # Fill your code here
-
+    pass
 
 def register_extensions(app):
     bootstrap.init_app(app)
     db.init_app(app)
-    login_manager.init_app(app)
     ckeditor.init_app(app)
     moment.init_app(app)
 
 
 def register_blueprints(app):
     # Fill your code here
-
+    pass
 
 def register_shell_context(app):
     @app.shell_context_processor
@@ -41,7 +40,8 @@ def register_template_context(app):
 
 def register_errors(app):
     # Fill your code here
-
+    pass
 
 def register_commands(app):
     # Fill your code here
+    pass
