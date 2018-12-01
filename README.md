@@ -4,7 +4,7 @@ Codes for Lec5
 
 ```
 $ git clone https://github.com/greyli/bluelog.git
-$ cd bluelog
+$ cd blog
 $ pipenv install --dev
 $ pipenv shell
 $ flask forge
