@@ -43,6 +43,7 @@ def fake_posts(count=50):
             category=Category.query.get(random.randint(1, Category.query.count())),
             timestamp=fake.date_time_this_year()
         )
+
         db.session.add(post)
     db.session.commit()
 
@@ -58,11 +59,11 @@ def fake_comments(count=500):
             reviewed=True,
             post=Post.query.get(random.randint(1, Post.query.count()))
         )
-    db.session.add(comment)
+        db.session.add(comment)
 
     salt = int(count * 0.1)
     for i in range(salt):
-        # 未审核评论
+        # unreviewed comments
         comment = Comment(
             author=fake.name(),
             email=fake.email(),
@@ -74,7 +75,7 @@ def fake_comments(count=500):
         )
         db.session.add(comment)
 
-        # 管理员发表的评论
+        # from admin
         comment = Comment(
             author='Brando',
             email='haha@example.com',
@@ -88,7 +89,7 @@ def fake_comments(count=500):
         db.session.add(comment)
     db.session.commit()
 
-    # 回复
+    # replies
     for i in range(salt):
         comment = Comment(
             author=fake.name(),
@@ -100,5 +101,5 @@ def fake_comments(count=500):
             replied=Comment.query.get(random.randint(1, Comment.query.count())),
             post=Post.query.get(random.randint(1, Post.query.count()))
         )
-    db.session.add(comment)
+        db.session.add(comment)
     db.session.commit()
